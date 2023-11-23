@@ -14,7 +14,7 @@ Visible in the "inspect" developer tools. Finish the custom element to put the d
                 let nDaysLeft = Math.ceil((nNewYearsEve.getTime()-today.getTime())/(nSeconds));
                 console.log(nDaysLeft); //logs the value we are looking for in our heading
                 // put your "secret sauce here to get this in to the document
-                this.innerHTML = new Date().nDaysLeft();
+                    this.innerHTML = new Date().nDaysLeft();
             }
         }
         customElements.define("x-days-to-newyears", DaysToNewYears);
