@@ -5,6 +5,19 @@
 
 <!-- The following custom element logs the number of days until New Years to the console. 
 Visible in the "inspect" developer tools. Finish the custom element to put the days left in to the .html -->
+    <script>
+        class DaysToNewYears extends HTMLElement{
+            connectedCallback(){
+                let today=new Date();
+                let nNewYearsEve=new Date(today.getFullYear(), 11, 31);
+                let nSeconds = 1000*60*60*24;
+                let nDaysLeft = Math.ceil((nNewYearsEve.getTime()-today.getTime())/(nSeconds));
+                console.log(nDaysLeft); //logs the value we are looking for in our heading
+                // put your "secret sauce here to get this in to the document
+            }
+        }
+        customElements.define("x-days-to-newyears", DaysToNewYears);
+    </script>
 <title>Question 4 | UX220 Test 2</title>
 </head>
 
@@ -12,18 +25,5 @@ Visible in the "inspect" developer tools. Finish the custom element to put the d
     <h1>There are <x-days-to-newyears></x-days-to-newyears> day(s) left until the new year in the Gregorian calendar.
     </h1>
 </body>
-<script>
-    class DaysToNewYears extends HTMLElement{
-        connectedCallback(){
-            let today=new Date();
-            let nNewYearsEve=new Date(today.getFullYear(), 11, 31);
-            let nSeconds = 1000*60*60*24;
-            let nDaysLeft = Math.ceil((nNewYearsEve.getTime()-today.getTime())/(nSeconds));
-            console.log(nDaysLeft); //logs the value we are looking for in our heading
-            // put your "secret sauce here to get this in to the document
-        }
-    }
-    customElements.define("x-days-to-newyears", DaysToNewYears);
-</script>
 
 </html>
